@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "naveen93mm/def"
+        DOCKER_IMAGE = "naveen93mm/novaloc93"
         DOCKER_TAG = "${BUILD_NUMBER}"
-        DEPLOY_SERVER = "3.110.233.20"
+        DEPLOY_SERVER = "3.110.144.109"
     }
 
     stages {
@@ -52,9 +52,9 @@ pipeline {
                     sh """
                     ssh -o StrictHostKeyChecking=no ec2-user@${DEPLOY_SERVER} '
                         sudo docker pull ${DOCKER_IMAGE}:${DOCKER_TAG}
-                        sudo docker stop novaloc93 || true
-                        sudo docker rm novaloc93 || true
-                        sudo docker run -d -p 80:80 --name novaloc93 ${DOCKER_IMAGE}:${DOCKER_TAG}
+                        sudo docker stop novaloc993 || true
+                        sudo docker rm novaloc993 || true
+                        sudo docker run -d -p 90:80 --name novaloc993 ${DOCKER_IMAGE}:${DOCKER_TAG}
                     '
                     """
                 }
