@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "naveen93mm/def"
         DOCKER_TAG = "${BUILD_NUMBER}"
-        DEPLOY_SERVER = "3.110.233.20"
+        DEPLOY_SERVER = "3.110.144.109"
     }
 
     stages {
